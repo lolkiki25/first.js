@@ -116,18 +116,67 @@ let students10 = [
   { name: "tsetsge", age: 30, grade: 100, balance: 20 },
   { name: "bata", age: 3, grade: 50, balance: 50 },
 ];
-function findMaxBalanceStudent(arr, age, balance) {
-  let studentbalance = 0;
+function findAvgBalanceStudent(arr) {
+  let balanceStudent = 0;
+  let count = 0; 
   for (i = 0; i < arr.length; i++) {
     if (arr[i].age >= 18) {
-      studentbalance = arr[i];
-    } else {
-      maxBalanceStudent.balance > arr[i];
-    }
-
-    return maxBalanceStudent;
+      balanceStudent += arr[i].balance;
+      count++;
+    } 
   }
+  if (count === 0){
+    return 0; 
+  }
+  return balanceStudent / count;
 }
 
-let manaidu = findMaxBalanceStudent(students10);
-console.log(manaidu);
+let manaiduuu = findAvgBalanceStudent(students10);
+console.log(manaiduuu);
+
+
+//ergtei gender tooldog function
+
+let students11 = [
+  { name: "boldo", age: 20, grade: 20, balance: 30, gender: "male" },
+  { name: "dorjo", age: 15, grade: 30, balance: 10, gender: "male" },
+  { name: "tsetsge", age: 30, grade: 100, balance: 20, gender: "female" },
+  { name: "bata", age: 3, grade: 50, balance: 50, gender: "male" },
+];
+
+function findMaleStudent(arr) {
+  let maleStudent = 0;
+  for (i = 0; i < arr.length; i++) {
+    if (arr[i].gender === "male") {
+      maleStudent++;
+    }
+  } 
+  return maleStudent;
+}
+let maindu = findMaleStudent(students11);
+console.log(maindu);
+
+//suragchdn hedn huwiin emegtei bgag tooldog funtion
+
+let students12 = [
+  { name: "boldo", age: 20, grade: 20, balance: 30, gender: "male" },
+  { name: "dorjo", age: 15, grade: 30, balance: 10, gender: "male" },
+  { name: "tsetsge", age: 30, grade: 100, balance: 20, gender: "female" },
+  { name: "bata", age: 3, grade: 50, balance: 50, gender: "male" },
+];
+function findFemaleStudents(arr) {
+  let femaleStudent = 0;
+  let total = arr.length;
+  for (i = 0; i < arr.length; i++) {
+    if (arr[i].gender ==="female") {
+      femaleStudent++;
+    }
+  }
+  if (total === 0) {
+    return 0;
+  }
+  let percent = (femaleStudent / total) * 100;
+  return percent.toFixed(2);
+}
+let mainduu = findFemaleStudents(students12);
+console.log(mainduu);
