@@ -50,7 +50,7 @@ let newStudents = students.map((student) => {
     grade: student.grade + 1,
   };
 });
-console.log(data);
+console.log(data1);
 console.log(newStudents);
 
 // filter
@@ -97,14 +97,7 @@ students.sort((student2, student1) => {
 });
 console.log(students);
 
-// nasand hursen suragchiig filterlej oloh function bich
-// gender ogonguut tuhain gendereer filterlej ogoh function bich
-// eg: filterByGender(students,"male") => zovhon erchuudiig yalgaj ogno
-// nasaar n sortloh function bich
-// neg too ogonguut tuhain toonoos ih balanactei surgchdiig yalgaj ogoh function bich
-// classCode gesen field nemeh function bich
-// eg: addClassCodeToStudents(students,"3A") => [{name: "boldo",age: 3,grade: 11,gender: "male",balance: 1231,classCode:"3A"},...]
-// removeGenders from student array function bich
+
 
 
 
@@ -224,11 +217,116 @@ let data3 = [
     balance: 12,
   },
 ];
-function findAgeStudents(data3, age) {
-    let ah = ages.sort((age2, age1) => {
-  return age2 - age1 ;
+data3.sort((student2, student1) => {
+  return student1.age - student2.age; 
 });
-return ah;
+console.log(data3);
+// neg too ogonguut tuhain toonoos ih balanactei surgchdiig yalgaj ogoh function bich
+let data4 = [
+  {
+    name: "boldo",
+    age: 3,
+    grade: 11,
+    gender: "male",
+    balance: 1231,
+  },
+  {
+    name: "dorjo",
+    age: 20,
+    grade: 11,
+    gender: "male",
+    balance: 33,
+  },
+  {
+    name: "tsetsge",
+    age: 10,
+    grade: 11,
+    gender: "female",
+    balance: 222,
+  },
+  {
+    name: "dulma",
+    age: 9,
+    grade: 11,
+    gender: "female",
+    balance: 12,
+  },
+];
+
+function findAdultStudents(data4, balance) {
+    let filtered = data4.filter((student) => {
+        return student.balance > balance;
+    });
+    return filtered;
 }
-let result2 = findAgeStudents(data3, 20);
-console.log(result2);
+let du = findAdultStudents(data4, 222);
+console.log("bodlog 4 = ", du);
+// classCode gesen field nemeh function bich
+let data5 = [
+  {
+    name: "boldo",
+    age: 3,
+    grade: 11,
+    gender: "male",
+    balance: 1231,
+  },
+  {
+    name: "dorjo",
+    age: 20,
+    grade: 11,
+    gender: "male",
+    balance: 33,
+  },
+  {
+    name: "tsetsge",
+    age: 10,
+    grade: 11,
+    gender: "female",
+    balance: 222,
+  },
+  {
+    name: "dulma",
+    age: 9,
+    grade: 11,
+    gender: "female",
+    balance: 12,
+  },
+];
+let newData = data5.map((student) => {
+  return {
+    ...student,
+    classCode: "3a",
+  };
+});
+console.log(newData);
+// removeGenders from student array function bich
+let data5 = [
+  {
+    name: "boldo",
+    age: 3,
+    grade: 11,
+    gender: "male",
+    balance: 1231,
+  },
+  {
+    name: "dorjo",
+    age: 20,
+    grade: 11,
+    gender: "male",
+    balance: 33,
+  },
+  {
+    name: "tsetsge",
+    age: 10,
+    grade: 11,
+    gender: "female",
+    balance: 222,
+  },
+  {
+    name: "dulma",
+    age: 9,
+    grade: 11,
+    gender: "female",
+    balance: 12,
+  },
+];
