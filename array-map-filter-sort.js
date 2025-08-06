@@ -98,8 +98,6 @@ students.sort((student2, student1) => {
 console.log(students);
 
 
-<<<<<<< HEAD
-
 
 // neg too ogonguut tuhain toonoos ih balanactei surgchdiig yalgaj ogoh function bich
 let data4 = [
@@ -308,7 +306,7 @@ let data3 = [
     balance: 12,
   },
 ];
-<<<<<<< HEAD
+
 function findAgeStudents(data3, age) {
   let ah = ages.sort((age2, age1) => {
     return age2 - age1;
@@ -2255,6 +2253,3 @@ function tagSuperEfficientCars(cars) {
 function addIdToCars(cars) {
   // ...
 }
- 
-  
->>>>>>> 1a2b8d8d17f28b000fdee4ead8cf6caf22d7508e
