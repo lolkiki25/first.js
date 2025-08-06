@@ -7,7 +7,7 @@
         <ul>
         </ul>
         <script>
-            const listData = [];
+            let listData = [];
             const ul = document.querySelector('ul');
             const printInputValue = (value) => {
                 console.log(value)
@@ -16,10 +16,20 @@
             }
             const render = () => {
                 ul.innerHTML = ""
-                listData.map((element) => {
+                listData.map((element, index) => {
                     const li = document.createElement('li');
+                    const removeBtn = document.createElement('button');
+                    removeBtn.innerText = "x";
+                    removeBtn.addEventListener('click', () => {
+                       const newListData = listData.filter((el, i) => {
+                            return i !== index; 
+                        })
+                        listData === newListData;
+                        render();
+                    })
                     li.innerText = element;
                     ul.appendChild(li);
+                    li.appendChild(removeBtn);
                 })
             }
             const body = document.querySelector('body');
