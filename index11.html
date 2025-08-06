@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+    </head>
+    <body>
+        <ul>
+        </ul>
+        <script>
+            const listData = [];
+            const ul = document.querySelector('ul');
+            const printInputValue = (value) => {
+                console.log(value)
+                listData.push(value);
+                console.log(listData)
+            }
+            const render = () => {
+                ul.innerHTML = ""
+                listData.map((element) => {
+                    const li = document.createElement('li');
+                    li.innerText = element;
+                    ul.appendChild(li);
+                })
+            }
+            const body = document.querySelector('body');
+            const input = document.createElement('input');
+            const button = document.createElement('button');
+            button.addEventListener('click', () => {
+                printInputValue(input.value)
+                render();
+            })
+            button.innerText = 'click me';
+            body.appendChild(input);
+            body.appendChild(button);
+        </script>
+
+    </body>
+</html>
