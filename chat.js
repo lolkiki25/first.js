@@ -15,3 +15,4 @@ const sendBtnClickHandler = () => {
     }
 };
 sendBtnElement.addEventListener("click", sendBtnClickHandler);  
+Pinecone$
