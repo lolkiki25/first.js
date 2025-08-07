@@ -22,9 +22,9 @@
                     removeBtn.innerText = "x";
                     removeBtn.addEventListener('click', () => {
                        const newListData = listData.filter((el, i) => {
-                            return i !== index; 
+                            return i !== index 
                         })
-                        listData === newListData;
+                        listData = newListData;
                         render();
                     })
                     li.innerText = element;
@@ -35,11 +35,16 @@
             const body = document.querySelector('body');
             const input = document.createElement('input');
             const button = document.createElement('button');
-            button.addEventListener('click', () => {
+           
+            button.innerText = 'click me';
+             button.addEventListener('click', () => {
+                if(input.value === '') {
+                    return alert = '' 
+                }
                 printInputValue(input.value)
                 render();
-            })
-            button.innerText = 'click me';
+                input.value = ""
+            });
             body.appendChild(input);
             body.appendChild(button);
         </script>
