@@ -1,0 +1,12 @@
+body {
+    margin: 0;
+    display: flex;
+};
+.red {
+    background-color: red;
+    height: 1100px;
+}
+.blue {
+    background-color: blue;
+    height: 1100px;
+}
