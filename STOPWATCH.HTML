@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StopWatch</title>
+</head>
+
+<body>
+    <div class="earth-container">
+        <div class="earth">
+            <div class="ss">Online Time & stopTimer</div>
+            <div class="Time" id="counter">00:00:00</div>
+
+            <button class="button" onclick="startTimer()">Start</button>
+            <button class="button" onclick="stopTimer()">Stop</button>
+            <button class="button" onclick="resetTimer()">Reset</button>
+        </div>
+        <script>
+            const counterDiv = document.getElementById("counter");
+            let hour = 0;
+            let minut = 0;
+            let second = 0;
+
+            function addSecond() {
+                second++;
+                if (second === 60) {
+                    minut++;
+                    second = 0;
+                }
+                if (minut === 60) {
+                    hour++;
+                    minut = 0;
+                }
+                counterDiv.innerText = second;
+            }
+            let interval = setInterval(addSecond, 1000)
+
+            function stopTimer() {
+                clearInterval(interval);
+            }
+
+            function startTimer() {
+                clearInterval(interval);
+                interval = setInterval(addSecond, 1000);
+            }
+            function resetTimer() {
+                stop();
+                second = 0;
+                minut = 0;
+                hour = 0;
+            }
+            function addSecond() {
+                second++;
+                if (second === 60) {
+                    minut++;
+                    second = 0;
+                }
+                if (minut === 60) {
+                    hour++;
+                    minut = 0;
+                }
+                counterDiv.innerText = second;
+            }
+        </script>
+</body>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        height: 1000px;
+    }
+    .earth-container {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        width: 550px;
+        height: 370px;
+        background-color: slategray;
+        border-radius: 30px;
+    }
+    .ss {
+        font-size: 15px;
+        color: white;
+        display: flex;
+        justify-content: center;
+        margin-top: 60px;
+    }
+    .Time {
+        font-size: 90px;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 40px;
+    }
+    .button {
+        height:30px;
+        width: 95px;
+        border-radius: 10px;
+        margin-top: 40px;
+        margin-left: 5px;
+        border-radius: 20px;
+        border: 2px white dashed;
+    }
+</style>
+
+</html>
