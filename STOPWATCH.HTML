@@ -11,58 +11,60 @@
     <div class="earth-container">
         <div class="earth">
             <div class="ss">Online Time & stopTimer</div>
-            <div class="Time" id="counter">00:00:00</div>
-
-            <button class="button" onclick="startTimer()">Start</button>
-            <button class="button" onclick="stopTimer()">Stop</button>
-            <button class="button" onclick="resetTimer()">Reset</button>
+            <div class="Timer">
+                <div class="Time" id="hour">00</div>
+                <div class="Time" id="min">00</div>
+                <div class="Time" id="counter">00</div>
+            </div>
+            <button class="button" onclick="start()">Start</button>
+            <button class="button" onclick="stop()">Stop</button>
+            <button class="button" onclick="reset()">Reset</button>
         </div>
         <script>
-            const counterDiv = document.getElementById("counter");
-            let hour = 0;
-            let minut = 0;
-            let second = 0;
+            let seconds = 0;
+            let minuts = 0;
+            let hours = 0;
+            let interval;
 
-            function addSecond() {
-                second++;
-                if (second === 60) {
-                    minut++;
-                    second = 0;
+
+            const counter = document.getElementById('counter');
+            const min = document.getElementById('min');
+            const hour = document.getElementById('hour');
+            const updateDisplay = () => {
+                hour.innerText = String(hours).padStart(2, '0') + ':';
+                min.innerText = String(minuts).padStart(2, '0') + ':';
+                counter.innerText = String(seconds).padStart(2, '0');
+            };
+
+
+            const addSeconds = () => {
+                seconds++;
+                if (seconds === 60) {
+                    seconds = 0;
+                    minuts++;
                 }
-                if (minut === 60) {
-                    hour++;
-                    minut = 0;
+                if (minuts === 60) {
+                    minuts = 0;
+                    hours++;
                 }
-                counterDiv.innerText = second;
+                updateDisplay();
+            };
+            function start() {
+                clearInterval(interval);
+                interval = setInterval(addSeconds, 100);
             }
-            let interval = setInterval(addSecond, 1000)
 
-            function stopTimer() {
+            function stop() {
                 clearInterval(interval);
             }
-
-            function startTimer() {
-                clearInterval(interval);
-                interval = setInterval(addSecond, 1000);
-            }
-            function resetTimer() {
+            function reset() {
                 stop();
-                second = 0;
-                minut = 0;
-                hour = 0;
+                seconds = 0;
+                minuts = 0;
+                hours = 0;
+                updateDisplay();
             }
-            function addSecond() {
-                second++;
-                if (second === 60) {
-                    minut++;
-                    second = 0;
-                }
-                if (minut === 60) {
-                    hour++;
-                    minut = 0;
-                }
-                counterDiv.innerText = second;
-            }
+            updateDisplay();
         </script>
 </body>
 <style>
@@ -73,6 +75,7 @@
         margin: 0 auto;
         height: 1000px;
     }
+
     .earth-container {
         margin: 0;
         display: flex;
@@ -82,6 +85,7 @@
         background-color: slategray;
         border-radius: 30px;
     }
+
     .ss {
         font-size: 15px;
         color: white;
@@ -89,6 +93,7 @@
         justify-content: center;
         margin-top: 60px;
     }
+
     .Time {
         font-size: 90px;
         color: white;
@@ -97,14 +102,28 @@
         align-items: center;
         margin-top: 40px;
     }
+
     .button {
-        height:30px;
+        height: 30px;
         width: 95px;
         border-radius: 10px;
         margin-top: 40px;
         margin-left: 5px;
         border-radius: 20px;
-        border: 2px white dashed;
+        border: 2px solid transparent;
+        background-color: white;
+        color: black;
+        transition: all 0.3s ease;
+    }
+    .button:hover {
+        background-color: purple;
+        color: white;
+        border-color:transparent ;
+    }
+    .Timer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 </style>
 
