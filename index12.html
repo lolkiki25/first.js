@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href=>
 </head>
 
 <body>
@@ -16,36 +16,16 @@
        let isOn = false;
 
        button.innerText ='On';
-
-       image.src ="https://www.w3schools.com/js/pic_bulboff.gif";
-
+       image.src = "pic_bulboff.gif";
        button.addEventListener('click', () => {
-         button.innerText = isOn ? 'On' : 'off';
-         isOn ? image.src ="https://www.w3schools.com/js/pic_bulboff.gif" : image.src ="https://www.w3schools.com/js/pic_bulbon.gif"
+        button.innerText = isOn ? 'On' : 'off';
+        isOn ? image.src = "pic_bulboff.gif" : image.src = "pic_bulbon.gif"
         isOn = !isOn
+        
        })
-
-
        body.appendChild(image);
        body.appendChild(button);
 
     </script>
 </body>
-
-=======
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=devicce-width, initial-scale=1.0">
-        <title></title>
-        <link rel="stylesheet">
-    </head>
-    <body>
-        <script>
-            const body = document.querySelector('body')
-            const image = document.createElement('img')
-            image.url ="ger.gif"
-                 
-        </script>
-    </body>
->>>>>>> 9dac1cbf56c56dba8997048891647b8f0057599c
 </html>
