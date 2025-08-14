@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title></title>
+    </head>
+    <body>
+        <button id="startBtn">start</button>
+        <script>
+            const app = document.createElement('div');
+            const startBtn = document.querySelector('startBtn');
+           function showQuestion(q, a) {
+            startBtn.remove();
+
+            const question = document.createElement('h2');
+            question.textContent = q;
+            app.appendChild(question);
+           }
+           a.forEach(txt => {
+            const btn = document.createElement('button');
+            btn.textContent = txt;
+            app.appendChild(btn);
+           })
+           startBtn.onclick = () => {
+            showQuestion("asdannk?",["asda", "asdasd","asda","adas"]
+            )
+           };
+        </script>
+    </body>
+</html>

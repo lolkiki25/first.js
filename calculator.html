@@ -4,6 +4,26 @@
         <meta charset="UTF-8">
     </head>
     <body>
-        
+        <button id="startBtn">start</button>
+        <script>
+            const body = document.querySelector('body');
+            const startBtn = document.querySelector('startBtn')
+            const quizStart = () => {
+                startBtn.remove();
+                const question = document.createElement('h2');
+                body.appendChild(question);
+                
+                new Array(4).forEach((el) => {
+                    const btn = document.createElement('button');
+                    body.appendChild(btn);
+                });
+                const drawQ = () => {
+                    const answerBtns = document.querySelectorAll('button');
+                }
+            }
+                startBtn.onclick = () => {
+
+                }
+        </script>
     </body>
 </html>
