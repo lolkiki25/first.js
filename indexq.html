@@ -1,31 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title></title>
-    </head>
-    <body>
-        <button id="startBtn">start</button>
-        <script>
-            const app = document.createElement('div');
-            const startBtn = document.querySelector('startBtn');
-           function showQuestion(q, a) {
-            startBtn.remove();
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <button id="start">start</button>
+    <script>
+        const data = [
+            {
+                question: "JavaScript-д массивын бүх элемент дээр функц ажиллуулаад шинэ массив буцаадаг арга аль нь вэ?",
+                answers: ["forEach()", "map()", "filter()", "reduce()"],
+                correctAnswer: "map()"
+            },
+            {
+                question: "HTML-д hyperlink үүсгэхэд ямар tag ашигладаг вэ?",
+                answers: ["<link>", "<href>", "<a>", "<p>"],
+                correctAnswer: "<a>"
+            },
+            {
+                question: "CSS-д текстийн өнгө өөрчлөх property аль нь вэ?",
+                answers: ["font-size", "background-color", "color", "text-style"],
+                correctAnswer: "color"
+            },
+            {
+                question: "JavaScript-д утга true эсвэл false хадгалах төрөл аль нь вэ?",
+                answers: ["Boolean", "String", "Number", "Array"],
+                correctAnswer: "Boolean"
+            }
+        ];
+        const body = document.querySelector('body');
+        const start = document.querySelector('button');
+        let currentIndex = 0;
+        let point = 0;
+
+        const quizStart = () => {
+            start.remove();
             const question = document.createElement('h2');
-            question.textContent = q;
-            app.appendChild(question);
-           }
-           a.forEach(txt => {
-            const btn = document.createElement('button');
-            btn.textContent = txt;
-            app.appendChild(btn);
-           })
-           startBtn.onclick = () => {
-            showQuestion("asdannk?",["asda", "asdasd","asda","adas"]
-            )
-           };
-        </script>
-    </body>
+            const currentQuestion = document.createElement('p');
+            body.appendChild(question);
+            currentQuestion.innerText = `${currentIndex}/${data.length}`
+            body.appendChild(currentQuestion);
+
+            new Array(4).fill(0).forEach((el, i) => {
+                const btn = document.createElement('button');
+                body.appendChild(btn);
+                btn.addEventListener('click', () => {
+                    console.log(point)
+                    if(data[currentIndex].correctAnswer === data[currentIndex].answers[i]) {
+                        point++;
+                    }
+                    currentIndex++;
+                    question.innerText = data[currentIndex].question;
+                    const answerBtns = document.querySelectorAll('button');
+                    answerBtns.forEach((btn, index) => (btn.innerText = data[currentIndex].answers[index]));
+                    currentQuestion.innerText = `${currentIndex}/${data.length}`
+                })
+            })
+
+            const drawQuestion = () => {
+                const answerBtns = document.querySelectorAll('button');
+                answerBtns.forEach((btn, index) => (btn.innerText = data[currentIndex].answers[index]));
+                question.innerText = data[currentIndex].question;
+
+
+            };
+            drawQuestion();
+        }
+        start.addEventListener('click', quizStart)
+
+    </script>
+</body>
+
 </html>
